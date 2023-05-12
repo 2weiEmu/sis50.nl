@@ -4,32 +4,164 @@
 	* {
 		margin: 0;
 		padding: 0;
+		font-family: "Cabin Sketch", cursive;
+		font-weight: bold;
 	}
 
 	body {
 		display: flex;
+		height: 100vh;
+		width: 100vw;
+		justify-content: space-evenly;
+	}
+
+	body div {
+		width: 30%;
+		text-align: center;
 	}
 
 	li {
 		display: flex;
 	}
+	li * {
+		display: inline-block;
+	}
 
-	span { display: inline-block; width: 50px; } 
+	button {
+		font-size: 2em;
+	}
+
+	li div {
+		width: 100%;
+		text-align: left;
+	}
+
+	li div p {
+		width: 80%;
+		max-width: 80%;
+		overflow: hidden;
+		font-size: 2em;
+	}
+
+	li div button {
+		max-width: 15%;
+		width: 15%;
+	}
+
+
+	table, th, td {
+		border-collapse: collapse;
+		border: 5px double black;
+	}
+
+	th, td {
+		user-select: none;
+	}
+
+	th {
+		font-size: 2em;
+	}
+
+	td {
+		text-align: center;
+		font-size: 4em;
+		min-height: 3.2em;
+		min-width: 2em;
+	}
+
+	#add_item_field {
+		font-size: 2.5em;
+		width: 70%;
+	}
+	
+	#add_item_button {
+		width: 25%;
+
+	}
+
 </style>
+
 
 <html>
 	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
 		<title>Sis50's Chalkboard</title>
 	</head>
 
 	<body>
 		<div id="attendance_table">
+			<table>
+				<tr>
+					<th>Rick</th>
+					<th>Youri</th>
+					<th>Robert</th>
+					<th>Milan</th>
+					<th>Dag</th>
+				</tr>
 
+				<tr>
+					<td id="rick-monday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="youri-monday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="robert-monday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="milan-monday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="dag-monday">Man.</td>
+				</tr>
+
+				<tr>
+					<td id="rick-tuesday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="youri-tuesday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="robert-tuesday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="milan-tuesday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="dag-tuesday">Din.</td>
+				</tr>
+
+				<tr>
+					<td id="rick-wednesday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="youri-wednesday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="robert-wednesday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="milan-wednesday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="dag-wednesday">Woe.</td>
+				</tr>
+
+				<tr>
+					<td id="rick-thursday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="youri-thursday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="robert-thursday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="milan-thursday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="dag-thursday">Don.</td>
+				</tr>
+
+				<tr>
+					<td id="rick-friday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="youri-friday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="robert-friday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="milan-friday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="dag-friday">Vri.</td>
+				</tr>
+
+				<tr>
+					<td id="rick-saturday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="youri-saturday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="robert-saturday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="milan-saturday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="dag-saturday">Zad.</td>
+				</tr>
+
+				<tr>
+					<td id="rick-sunday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="youri-sunday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="robert-sunday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="milan-sunday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="dag-sunday">Zon.</td>
+				</tr>
+			</table>
 		</div>
 		<div id="buy_list">
 			<form action="" onsubmit="addItemMessage(event)">
-				<input type="text" id="new_item_text"/>
-				<button>Add</button>
+				<input id="add_item_field" type="text"/>
+				<button id="add_item_button">Add</button>
 			</form>
 			<ul id="item_list">
 
@@ -40,11 +172,15 @@
 
 <script>
 	function newModelItem(itemCount, itemName) {
-		return `<div id="inner_item-${itemCount}">${itemName}<span></span><button id="del-button-${itemCount}" onclick="removeItemMessage(this.id)"">X</button></div>`
+		return `<div>
+				<p id="text-${itemCount}">${itemName}</p>
+				<button id="del-button-${itemCount}" onclick="removeItemMessage(this.id)"">X</button>
+			</div>`
 	}
 
 	var itemCount = 0
 	var ws = new WebSocket("ws://127.0.0.1:8000/ws")
+	var day_states = [ "<space></space>", "X", "O", "?" ];
 	ws.onmessage = function(event) {
 
 		var change = event.data;
@@ -68,6 +204,14 @@
 			document.getElementById(`list_item-${delId}`).remove();
 			
 		}
+		else if (change.startsWith("change_day-")) {
+
+			change = change.replace(/^(change_day-)/, "");
+			var key_data = change.split("-")
+
+			console.log(`changing given day - ${key_data[0]}-${key_data[1]} , ${key_data[2]}`);
+			document.getElementById(`${key_data[0]}-${key_data[1]}`).innerHTML = day_states[key_data[2]];
+		}
 	};
 
 	function removeItemMessage(itemId) {
@@ -77,14 +221,31 @@
 	}
 
 	function addItemMessage(event) {
-		var newItem = document.getElementById("new_item_text").value;
+		var newItem = document.getElementById("add_item_field").value;
 		ws.send(`new_item-${newItem}`);
 		newItem.value="";
 		event.preventDefault();
 	}
 
-	function changeDayStatus(event) {
+	var current_date = new Date();
+	var days_map = ["", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+	var today = days_map[current_date.getDay()]
 
+	var all_people = ["rick", "youri", "robert", "milan", "dag"]
+
+	for (var i = 0; i < all_people.length; i++) {
+		var select_person = `${all_people[i]}-${today}`
+		var select_element = document.getElementById(select_person);
+		console.log(`changed ${select_person}`);
+		select_element.style.backgroundColor = '#afffaf';
+	}
+
+
+	function changeDayStatus(itemId) {
+		var current_day = document.getElementById(itemId);
+		var current_day_state = current_day.innerHTML;
+		var new_index = (day_states.indexOf(current_day_state) + 1) % day_states.length;
+		ws.send(`change_day-${itemId}-${new_index}`);
 	}
 
 </script>

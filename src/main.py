@@ -25,10 +25,10 @@ app.mount('/static', StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="static/templates")
 
-items_file = ""
+current_items: list[str] = []
 
-with open("all_shopping_items", "wr") as itemsfile:
-    items_file = itemsfile
+with open("all_shopping_items", "r") as itemsfile:
+    current_items = itemsfile.readlines()
 
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
@@ -53,6 +53,9 @@ async def websocket_handler(websocket: WebSocket):
             elif data.startswith("del_item-"):
                 #await websocket.send_text(f"{data}")
                 await broadcast_to_sockets(f"{data}")
+            elif data.startswith("change_day-"):
+                await broadcast_to_sockets(f"{data}")
+                
     except WebSocketDisconnect:
         print("removed connection")
         all_connections.remove(websocket)
