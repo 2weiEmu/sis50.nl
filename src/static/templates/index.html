@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		display: flex;
+	}
+
+	li {
+		display: flex;
+	}
+
+	span { display: inline-block; width: 50px; } 
+</style>
+
+<html>
+	<head>
+		<title>Sis50's Chalkboard</title>
+	</head>
+
+	<body>
+		<div id="attendance_table">
+
+		</div>
+		<div id="buy_list">
+			<form action="" onsubmit="addItemMessage(event)">
+				<input type="text" id="new_item_text"/>
+				<button>Add</button>
+			</form>
+			<ul id="item_list">
+
+			</ul>
+		</div>
+	</body>
+</html>
+
+<script>
+	function newModelItem(itemCount, itemName) {
+		return `<div id="inner_item-${itemCount}">${itemName}<span></span><button id="del-button-${itemCount}" onclick="removeItemMessage(this.id)"">X</button></div>`
+	}
+
+	var itemCount = 0
+	var ws = new WebSocket("ws://127.0.0.1:8000/ws")
+	ws.onmessage = function(event) {
+
+		var change = event.data;
+		var itemList = document.getElementById("item_list");
+
+		if (change.startsWith("new_item-")) {
+
+			var newListItem = document.createElement("li")
+			newListItem.setAttribute("id", `list_item-${itemCount}`)
+
+			var itemName = event.data.replace(/^(new_item-)/, "")
+			console.log(itemName)
+			newListItem.innerHTML = newModelItem(itemCount, itemName);
+			itemCount++;
+
+			itemList.appendChild(newListItem);
+		}
+		else if (change.startsWith("del_item-")) {
+			console.log(`deleting ${event.data}`)
+			var delId = event.data.replace(/^(del_item-)/, "")
+			document.getElementById(`list_item-${delId}`).remove();
+			
+		}
+	};
+
+	function removeItemMessage(itemId) {
+		var tempId = itemId.replace(/^(del-button-)/, "")
+		console.log(`delete ${tempId}`)
+		ws.send(`del_item-${tempId}`)
+	}
+
+	function addItemMessage(event) {
+		var newItem = document.getElementById("new_item_text").value;
+		ws.send(`new_item-${newItem}`);
+		newItem.value="";
+		event.preventDefault();
+	}
+
+	function changeDayStatus(event) {
+
+	}
+
+</script>
