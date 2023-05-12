@@ -159,6 +159,8 @@
 			</table>
 		</div>
 		<div id="buy_list">
+			<p>Please note that normal reloading doesn't work yet... so like please hit Ctrl+f5 to reload</p>
+			<p>Also just note if the first board it loads is all empty... try hitting Ctrl+f5 as well...</p>
 			<form action="" onsubmit="addItemMessage(event)">
 				<input id="add_item_field" type="text"/>
 				<button id="add_item_button">Add</button>
@@ -171,81 +173,96 @@
 </html>
 
 <script>
+	// CONSTANT STATE
+	var days_map = ["invalid", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+	var all_people = ["rick", "youri", "robert", "milan", "dag"]
+	var day_states = [ "<space></space>", "X", "O", "?" ];
+
+	// make sure this connects to the correct server
+	var ws = new WebSocket("ws://127.0.0.1:8000/ws")
+
+	// CLIENT SIDE FUNCTIONS
 	function newModelItem(itemCount, itemName) {
 		return `<div>
-				<p id="text-${itemCount}">${itemName}</p>
-				<button id="del-button-${itemCount}" onclick="removeItemMessage(this.id)"">X</button>
+			<p id="text-${itemCount}">${itemName}</p>
+			<button id="${itemCount}" onclick="removeItemMessage(this.id)">X</button>
 			</div>`
 	}
 
-	var itemCount = 0
-	var ws = new WebSocket("ws://127.0.0.1:8000/ws")
-	var day_states = [ "<space></space>", "X", "O", "?" ];
+	function highlightCurrentDayRow() {
+
+		var current_date = new Date();
+		var today = days_map[current_date.getDay()]
+
+		for (var i = 0; i < all_people.length; i++) {
+			var select_person = `${all_people[i]}-${today}`
+			var select_element = document.getElementById(select_person);
+			console.log(`changed ${select_person}`);
+			select_element.style.backgroundColor = '#afffaf';
+		}
+	}
+	highlightCurrentDayRow();
+
+
+	/**
+	 * DATA FORMAT
+	 * [event]^[itemId]^[newValue]
+	**/
+
+	// SERVER INTERACTION FUNCTIONS
 	ws.onmessage = function(event) {
 
-		var change = event.data;
 		var itemList = document.getElementById("item_list");
 
-		if (change.startsWith("new_item-")) {
+		// unpacking the message received
+		var message = event.data.split("^");
 
+		var messageType = message[0];
+		var mEffectedItem = message[1];
+		var mNewValue = message[2];
+
+		console.log(message);
+
+		if (messageType == "addItem") {
 			var newListItem = document.createElement("li")
-			newListItem.setAttribute("id", `list_item-${itemCount}`)
-
-			var itemName = event.data.replace(/^(new_item-)/, "")
-			console.log(itemName)
-			newListItem.innerHTML = newModelItem(itemCount, itemName);
-			itemCount++;
+			newListItem.setAttribute("id", `list_item-${mEffectedItem}`)
+			newListItem.innerHTML = newModelItem(mEffectedItem, mNewValue);
 
 			itemList.appendChild(newListItem);
-		}
-		else if (change.startsWith("del_item-")) {
-			console.log(`deleting ${event.data}`)
-			var delId = event.data.replace(/^(del_item-)/, "")
-			document.getElementById(`list_item-${delId}`).remove();
+		} else if (messageType == "deleteItem") {
+			document.getElementById(mEffectedItem).remove();
 			
-		}
-		else if (change.startsWith("change_day-")) {
-
-			change = change.replace(/^(change_day-)/, "");
-			var key_data = change.split("-")
-
-			console.log(`changing given day - ${key_data[0]}-${key_data[1]} , ${key_data[2]}`);
-			document.getElementById(`${key_data[0]}-${key_data[1]}`).innerHTML = day_states[key_data[2]];
+		} else if (messageType == "changeDay") {
+			document.getElementById(mEffectedItem).innerHTML = mNewValue;
 		}
 	};
+	window.addEventListener("load", (event) => { ws.send("retrieveState^_^_") });
 
 	function removeItemMessage(itemId) {
-		var tempId = itemId.replace(/^(del-button-)/, "")
-		console.log(`delete ${tempId}`)
-		ws.send(`del_item-${tempId}`)
+		var itemValue = document.getElementById(`text-${itemId}`).innerHTML;
+		ws.send(`deleteItem^list_item-${itemId}^${itemValue}`)
+		console.log(`deleteItem^list_item-${itemId}^${itemValue}`);
 	}
 
 	function addItemMessage(event) {
 		var newItem = document.getElementById("add_item_field").value;
-		ws.send(`new_item-${newItem}`);
+		if (!(newItem === "")) {
+			ws.send(`addItem^_^${newItem}`);
+			console.log(`addItem^_^${newItem}`)
+		}
 		newItem.value="";
 		event.preventDefault();
 	}
-
-	var current_date = new Date();
-	var days_map = ["", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
-	var today = days_map[current_date.getDay()]
-
-	var all_people = ["rick", "youri", "robert", "milan", "dag"]
-
-	for (var i = 0; i < all_people.length; i++) {
-		var select_person = `${all_people[i]}-${today}`
-		var select_element = document.getElementById(select_person);
-		console.log(`changed ${select_person}`);
-		select_element.style.backgroundColor = '#afffaf';
-	}
-
 
 	function changeDayStatus(itemId) {
 		var current_day = document.getElementById(itemId);
 		var current_day_state = current_day.innerHTML;
 		var new_index = (day_states.indexOf(current_day_state) + 1) % day_states.length;
-		ws.send(`change_day-${itemId}-${new_index}`);
+		ws.send(`changeDay^${itemId}^${day_states[new_index]}`);
+		console.log(`changeDay^${itemId}^${day_states[new_index]}`)
 	}
+
+	// retrieves the most up-to-date for the given user, !!NOT BROADCAST!!
+	// will be received as fragments of all possible operations, instead of as one big string
 
 </script>
