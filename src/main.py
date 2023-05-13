@@ -48,8 +48,14 @@ item_count = 0
 with open("list_items", "r") as itemsFile:
     raw_items = itemsFile.readlines()
     for raw in raw_items:
-        t = raw.split("^")
-        all_items.append((t[0], t[1]))
+        t = raw.replace('\n', "")
+        if t == "": continue
+        t = t.split("^")
+        print(t)
+        item_id = int(t[1])
+        if item_id > item_count:
+            item_count = item_id + 1
+        all_items.append((t[0], item_id))
 
 with open("grid_state", "r") as gridFile:
     raw_grid = gridFile.readlines()
@@ -126,6 +132,18 @@ async def websocket_handler(websocket: WebSocket):
         print("removed connection")
         all_connections.remove(websocket)
 
+        # once again, saving state to disk
+        print("saving to file on close...")
+        
+        with open("grid_state", "w") as gridState:
+
+            for row in grid:
+                gridState.write(",".join(row) + '\n')
+
+        with open("list_items", "w") as listItems:
+            for item in all_items:
+                listItems.write(f"{item[0]}^{item[1]}" + '\n')
+
 
 async def broadcast_to_sockets(data: str):
     for socket in all_connections:
@@ -140,16 +158,4 @@ if __name__ == "__main__":
             reload=True
             )
 
-    # once again, saving state to disk
-    print("saving to file on close...")
-    
-    with open("grid_state", "w") as gridState:
 
-        for row in grid:
-            gridState.write(",".join(row) + '\n')
-
-    with open("list_items", "w") as listItems:
-        for item in all_items:
-            listItems.write("^".join(item) + '\n')
-
-    print("finished saving to file.")

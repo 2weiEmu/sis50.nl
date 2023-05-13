@@ -236,8 +236,6 @@
 			document.getElementById(mEffectedItem).innerHTML = mNewValue;
 		}
 	};
-	window.addEventListener("load", (event) => { ws.send("retrieveState^_^_") });
-
 	function removeItemMessage(itemId) {
 		var itemValue = document.getElementById(`text-${itemId}`).innerHTML;
 		ws.send(`deleteItem^list_item-${itemId}^${itemValue}`)
@@ -262,6 +260,9 @@
 		console.log(`changeDay^${itemId}^${day_states[new_index]}`)
 	}
 
+	ws.onopen = function() {
+		 ws.send("retrieveState^_^_") 
+	};
 	// retrieves the most up-to-date for the given user, !!NOT BROADCAST!!
 	// will be received as fragments of all possible operations, instead of as one big string
 

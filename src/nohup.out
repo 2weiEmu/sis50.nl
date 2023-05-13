@@ -199,3 +199,104 @@ INFO:     ('86.92.180.239', 52380) - "WebSocket /ws" [accepted]
 INFO:     connection open
 INFO:     86.92.180.239:52374 - "GET /favicon.ico HTTP/1.1" 404 Not Found
 INFO:     connection closed
+websocket sending
+removed connection
+INFO:     162.243.140.38:46524 - "GET /hudson HTTP/1.1" 404 Not Found
+INFO:     109.237.98.226:51722 - "GET /.env HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     45.56.108.128:62183 - "GET /systembc/password.php HTTP/1.0" 404 Not Found
+INFO:     86.92.180.239:56038 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 56040) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+removed connection
+INFO:     45.84.199.107:60029 - "GET /.env HTTP/1.1" 404 Not Found
+INFO:     143.110.222.166:53920 - "GET / HTTP/1.1" 200 OK
+INFO:     185.180.143.137:39070 - "GET / HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+INFO:     170.64.156.160:55728 - "GET /manager/html HTTP/1.1" 404 Not Found
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/uvicorn/protocols/http/h11_impl.py", line 428, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/starlette/middleware/cors.py", line 84, in __call__
+    await self.app(scope, receive, send)
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 91, in __call__
+    await response(scope, receive, sender)
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/starlette/responses.py", line 164, in __call__
+    await send(
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/starlette/middleware/exceptions.py", line 65, in sender
+    await send(message)
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/starlette/middleware/errors.py", line 159, in _send
+    await send(message)
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/uvicorn/protocols/http/h11_impl.py", line 512, in send
+    output = self.conn.send(event)
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/h11/_connection.py", line 512, in send
+    data_list = self.send_with_data_passthrough(event)
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/h11/_connection.py", line 537, in send_with_data_passthrough
+    self._process_event(self.our_role, event)
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/h11/_connection.py", line 272, in _process_event
+    self._cstate.process_event(role, type(event), server_switch_event)
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/h11/_state.py", line 293, in process_event
+    self._fire_event_triggered_transitions(role, _event_type)
+  File "/root/sis50.nl/venv/lib/python3.9/site-packages/h11/_state.py", line 311, in _fire_event_triggered_transitions
+    raise LocalProtocolError(
+h11._util.LocalProtocolError: can't handle event type Response when role=SERVER and state=MUST_CLOSE
+INFO:     94.198.154.29:56168 - "GET / HTTP/1.1" 200 OK
+INFO:     34.91.172.54:39400 - "GET / HTTP/1.1" 200 OK
+INFO:     ('34.91.172.54', 39412) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+WARNING:  Invalid HTTP request received.
+removed connection
+INFO:     94.198.159.219:42332 - "GET / HTTP/1.1" 200 OK
+INFO:     87.121.221.49:56216 - "POST /boaform/admin/formLogin HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3500]
+INFO:     Stopping reloader process [3498]
+saving to file on close...
+INFO:     Will watch for changes in these directories: ['/root/sis50.nl/src']
+INFO:     Uvicorn running on http://0.0.0.0:80 (Press CTRL+C to quit)
+INFO:     Started reloader process [5231] using StatReload
+Finished Grid: [['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', '?', 'X', 'X'], ['E', '?', '?', 'X']]
+INFO:     Started server process [5233]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5233]
+Finished Grid: [['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', '?', 'X', 'X'], ['E', '?', '?', 'X']]
+Finished Grid: [['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', '?', 'X', 'X'], ['E', '?', '?', 'X']]
+INFO:     Stopping reloader process [5231]
+saving to file on close...
+finished saving to file.
+INFO:     Will watch for changes in these directories: ['/root/sis50.nl/src']
+INFO:     Uvicorn running on http://0.0.0.0:80 (Press CTRL+C to quit)
+INFO:     Started reloader process [5238] using StatReload
+Finished Grid: [['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', '?', 'X', 'X'], ['E', '?', '?', 'X']]
+INFO:     Started server process [5240]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5240]
+Finished Grid: [['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', '?', 'X', 'X'], ['E', '?', '?', 'X']]
+Finished Grid: [['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', '?', 'X', 'X'], ['E', '?', '?', 'X']]
+INFO:     Stopping reloader process [5238]
+saving to file on close...
+finished saving to file.
