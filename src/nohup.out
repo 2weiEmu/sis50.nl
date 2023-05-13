@@ -1,0 +1,201 @@
+INFO:     Will watch for changes in these directories: ['/root/sis50.nl/src']
+ERROR:    [Errno 98] Address already in use
+Finished Grid: [['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', '?', 'X', 'X'], ['E', '?', '?', 'X']]
+INFO:     Will watch for changes in these directories: ['/root/sis50.nl/src']
+INFO:     Uvicorn running on http://0.0.0.0:80 (Press CTRL+C to quit)
+INFO:     Started reloader process [3498] using StatReload
+Finished Grid: [['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', '?', 'X', 'X'], ['E', '?', '?', 'X']]
+INFO:     Started server process [3500]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+Finished Grid: [['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', '?', 'X', 'X'], ['E', '?', '?', 'X']]
+Finished Grid: [['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', 'E', 'X', 'X'], ['E', '?', 'X', 'X'], ['E', '?', '?', 'X']]
+INFO:     86.92.180.239:33314 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 33330) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+removed connection
+INFO:     86.92.180.239:33332 - "GET / HTTP/1.1" 200 OK
+INFO:     86.92.180.239:33332 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     ('86.92.180.239', 33336) - "WebSocket /ws" [accepted]
+INFO:     connection open
+websocket sending
+INFO:     94.198.159.219:55080 - "GET / HTTP/1.1" 200 OK
+INFO:     connection closed
+removed connection
+INFO:     86.92.180.239:35476 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 35488) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:35476 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40036 - "GET / HTTP/1.1" 200 OK
+INFO:     86.92.180.239:40036 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     ('86.92.180.239', 40050) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40054 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 40064) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:40054 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40068 - "GET / HTTP/1.1" 200 OK
+INFO:     86.92.180.239:40068 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     ('86.92.180.239', 40070) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40086 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 40092) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:40086 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40096 - "GET / HTTP/1.1" 200 OK
+INFO:     86.92.180.239:40096 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     ('86.92.180.239', 40100) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40106 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 40116) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:40106 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40130 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 40146) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:40130 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40158 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 40174) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:40158 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40182 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 40194) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:40182 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40200 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 40204) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:40200 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40208 - "GET / HTTP/1.1" 200 OK
+INFO:     86.92.180.239:40208 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     ('86.92.180.239', 40212) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40220 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 40232) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:40220 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40248 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 40264) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:40248 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40270 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 40278) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:40270 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40280 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 40292) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:40280 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:40298 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 40304) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+removed connection
+INFO:     86.92.180.239:40320 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 40328) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+removed connection
+INFO:     86.92.180.239:40340 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 40348) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:40340 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:58960 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 58966) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:58960 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:58972 - "GET / HTTP/1.1" 200 OK
+INFO:     86.92.180.239:58972 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     ('86.92.180.239', 58976) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:58986 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 58992) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:58986 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+websocket sending
+INFO:     86.92.180.239:54703 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 54707) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:54703 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:54782 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 54784) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:54782 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+INFO:     connection closed
+websocket sending
+removed connection
+removed connection
+INFO:     86.92.180.239:52352 - "GET / HTTP/1.1" 200 OK
+INFO:     86.92.180.239:52352 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     ('86.92.180.239', 52368) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+INFO:     86.92.180.239:52374 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 52380) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     86.92.180.239:52374 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
