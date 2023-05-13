@@ -142,3 +142,14 @@ if __name__ == "__main__":
 
     # once again, saving state to disk
     print("saving to file on close...")
+    
+    with open("grid_state", "w") as gridState:
+
+        for row in grid:
+            gridState.write(",".join(row) + '\n')
+
+    with open("list_items", "w") as listItems:
+        for item in all_items:
+            listItems.write("^".join(item) + '\n')
+
+    print("finished saving to file.")
