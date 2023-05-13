@@ -53,7 +53,7 @@ with open("list_items", "r") as itemsFile:
         t = t.split("^")
         print(t)
         item_id = int(t[1])
-        if item_id > item_count:
+        if item_id >= item_count:
             item_count = item_id + 1
         all_items.append((t[0], item_id))
 
