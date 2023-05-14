@@ -1076,3 +1076,56 @@ INFO:     86.92.180.239:54440 - "GET / HTTP/1.1" 200 OK
 INFO:     ('86.92.180.239', 54450) - "WebSocket /ws" [accepted]
 INFO:     connection open
 INFO:     connection closed
+websocket sending
+removed connection
+saving to file on close...
+INFO:     86.92.180.239:48876 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 48878) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+saving to file on close...
+INFO:     86.92.180.239:48876 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 48892) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+saving to file on close...
+INFO:     86.92.180.239:48876 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 48908) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+saving to file on close...
+INFO:     86.92.180.239:48918 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 48920) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+saving to file on close...
+INFO:     86.92.180.239:48918 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 48932) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+saving to file on close...
+INFO:     86.92.180.239:48944 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 48956) - "WebSocket /ws" [accepted]
+INFO:     connection open
+websocket sending
+INFO:     86.92.180.239:48944 - "GET / HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     ('86.92.180.239', 48968) - "WebSocket /ws" [accepted]
+INFO:     connection open
+removed connection
+saving to file on close...
+websocket sending
+INFO:     86.92.180.239:37524 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 37538) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
