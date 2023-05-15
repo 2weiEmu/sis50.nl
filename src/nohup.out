@@ -1129,3 +1129,197 @@ INFO:     86.92.180.239:37524 - "GET / HTTP/1.1" 200 OK
 INFO:     ('86.92.180.239', 37538) - "WebSocket /ws" [accepted]
 INFO:     connection open
 INFO:     connection closed
+INFO:     Will watch for changes in these directories: ['/root/sis50.nl/src']
+ERROR:    [Errno 98] Address already in use
+['koffie', '3']
+Finished Grid: [['E', 'O', 'E', 'E'], ['E', 'E', 'O', 'E'], ['E', 'E', 'E', 'E'], ['E', '?', 'X', 'E'], ['E', 'X', 'X', 'E'], ['E', '?', 'X', 'E'], ['E', 'E', 'X', 'E']]
+INFO:     Shutting down
+INFO:     connection closed
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [21513]
+websocket sending
+removed connection
+saving to file on close...
+removed connection
+saving to file on close...
+INFO:     Stopping reloader process [21511]
+INFO:     Will watch for changes in these directories: ['/root/sis50.nl/src']
+INFO:     Uvicorn running on http://0.0.0.0:80 (Press CTRL+C to quit)
+INFO:     Started reloader process [21659] using StatReload
+['koffie', '3']
+Finished Grid: [['E', 'O', 'E', 'E'], ['E', 'E', 'O', 'E'], ['E', 'E', 'E', 'E'], ['E', '?', 'X', 'E'], ['E', 'X', 'X', 'E'], ['E', '?', 'X', 'E'], ['E', 'E', 'X', 'E']]
+INFO:     Started server process [21661]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+['koffie', '3']
+Finished Grid: [['E', 'O', 'E', 'E'], ['E', 'E', 'O', 'E'], ['E', 'E', 'E', 'E'], ['E', '?', 'X', 'E'], ['E', 'X', 'X', 'E'], ['E', '?', 'X', 'E'], ['E', 'E', 'X', 'E']]
+['koffie', '3']
+Finished Grid: [['E', 'O', 'E', 'E'], ['E', 'E', 'O', 'E'], ['E', 'E', 'E', 'E'], ['E', '?', 'X', 'E'], ['E', 'X', 'X', 'E'], ['E', '?', 'X', 'E'], ['E', 'E', 'X', 'E']]
+INFO:     86.92.180.239:45146 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 45156) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+saving to file on close...
+INFO:     86.92.180.239:42268 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 42276) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+saving to file on close...
+INFO:     86.92.180.239:47828 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 47838) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+saving to file on close...
+INFO:     86.92.180.239:49088 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 49110) - "WebSocket /ws" [accepted]
+INFO:     connection open
+websocket sending
+INFO:     86.92.180.239:49088 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     86.92.180.239:49102 - "GET / HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     ('86.92.180.239', 37770) - "WebSocket /ws" [accepted]
+INFO:     connection open
+WARNING:  Invalid HTTP request received.
+removed connection
+saving to file on close...
+websocket sending
+INFO:     86.92.180.239:48982 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 48998) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+removed connection
+saving to file on close...
+INFO:     86.92.180.239:49006 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 49022) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     connection closed
+WARNING:  Invalid HTTP request received.
+websocket sending
+removed connection
+saving to file on close...
+removed connection
+saving to file on close...
+INFO:     34.245.116.52:57633 - "GET / HTTP/1.0" 200 OK
+INFO:     45.128.232.121:53326 - "POST /boaform/admin/formLogin HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     143.110.222.166:39070 - "GET / HTTP/1.1" 200 OK
+INFO:     94.198.159.219:45500 - "GET / HTTP/1.1" 200 OK
+INFO:     86.92.180.239:58830 - "GET / HTTP/1.1" 200 OK
+INFO:     86.92.180.239:58830 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     ('86.92.180.239', 58831) - "WebSocket /ws" [accepted]
+INFO:     connection open
+websocket sending
+INFO:     213.171.210.91:50384 - "GET /.env HTTP/1.1" 404 Not Found
+INFO:     213.171.210.91:50416 - "POST / HTTP/1.1" 405 Method Not Allowed
+INFO:     216.218.206.67:55872 - "GET / HTTP/1.1" 200 OK
+INFO:     216.218.206.67:48476 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     216.218.206.67:52352 - "GET /geoserver/web/ HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     37.114.40.163:56514 - "POST /boaform/admin/formLogin HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     37.114.40.163:36948 - "POST /boaform/admin/formLogin HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     143.110.222.166:59242 - "GET / HTTP/1.1" 200 OK
+INFO:     174.138.45.197:57156 - "GET / HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+INFO:     37.114.40.163:55672 - "POST /boaform/admin/formLogin HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     179.43.177.243:55736 - "GET / HTTP/1.1" 200 OK
+INFO:     143.110.222.166:44272 - "GET / HTTP/1.1" 200 OK
+INFO:     143.110.222.166:59392 - "GET / HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+INFO:     128.1.248.42:39756 - "GET / HTTP/1.1" 200 OK
+INFO:     109.237.97.180:49008 - "GET /.env HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     143.110.222.166:48036 - "GET / HTTP/1.1" 200 OK
+INFO:     45.155.76.198:58541 - "GET /.env HTTP/1.1" 404 Not Found
+INFO:     94.198.154.29:55916 - "GET / HTTP/1.1" 200 OK
+INFO:     94.198.159.219:56508 - "GET / HTTP/1.1" 200 OK
+INFO:     143.110.222.166:47516 - "GET / HTTP/1.1" 200 OK
+INFO:     34.90.112.222:55908 - "GET / HTTP/1.1" 200 OK
+INFO:     ('34.90.112.222', 55910) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+WARNING:  Invalid HTTP request received.
+websocket sending
+removed connection
+saving to file on close...
+INFO:     20.234.108.7:49040 - "GET / HTTP/1.1" 200 OK
+INFO:     143.110.222.166:49710 - "GET / HTTP/1.1" 200 OK
+INFO:     35.88.44.5:56284 - "GET / HTTP/1.1" 200 OK
+INFO:     18.130.243.11:21345 - "GET / HTTP/1.0" 200 OK
+INFO:     152.89.196.144:43066 - "GET /?XDEBUG_SESSION_START=phpstorm HTTP/1.1" 200 OK
+INFO:     179.43.177.243:40782 - "POST /boaform/admin/formLogin HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     18.130.243.11:21345 - "GET / HTTP/1.0" 200 OK
+INFO:     143.110.222.166:41272 - "GET / HTTP/1.1" 200 OK
+INFO:     71.6.232.27:53682 - "GET / HTTP/1.1" 200 OK
+INFO:     94.198.154.29:33742 - "GET / HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+INFO:     143.110.222.166:49404 - "GET / HTTP/1.1" 200 OK
+INFO:     185.180.143.141:45014 - "GET /admin/ HTTP/1.1" 404 Not Found
+INFO:     185.180.143.141:51860 - "GET / HTTP/1.1" 200 OK
+INFO:     185.180.143.141:56604 - "GET / HTTP/1.1" 200 OK
+INFO:     185.180.143.141:57120 - "GET /solr/ HTTP/1.1" 404 Not Found
+INFO:     185.180.143.141:38630 - "GET /webfig/ HTTP/1.1" 404 Not Found
+INFO:     185.180.143.141:47512 - "GET /sugar_version.json HTTP/1.1" 404 Not Found
+INFO:     185.180.143.141:57306 - "GET / HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+INFO:     152.32.223.235:46110 - "GET / HTTP/1.1" 200 OK
+INFO:     152.32.223.235:50452 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     152.32.223.235:51016 - "GET /robots.txt HTTP/1.1" 404 Not Found
+INFO:     152.32.223.235:51810 - "GET /sitemap.xml HTTP/1.1" 404 Not Found
+INFO:     20.234.108.7:56212 - "GET /.git/config HTTP/1.1" 404 Not Found
+INFO:     94.26.48.24:45297 - "GET / HTTP/1.1" 200 OK
+INFO:     81.16.247.69:47884 - "GET / HTTP/1.1" 200 OK
+INFO:     152.89.196.144:59152 - "GET /actuator/gateway/routes HTTP/1.1" 404 Not Found
+INFO:     143.110.222.166:59638 - "GET / HTTP/1.1" 200 OK
+INFO:     109.38.135.221:5126 - "GET / HTTP/1.1" 200 OK
+INFO:     ('109.38.135.221', 5127) - "WebSocket /ws" [accepted]
+INFO:     connection open
+websocket sending
+websocket sending
+INFO:     109.38.135.221:5136 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection closed
+removed connection
+saving to file on close...
+INFO:     113.130.126.121:13140 - "GET / HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+INFO:     143.110.222.166:36352 - "GET / HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+INFO:     94.198.154.29:38276 - "GET / HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+INFO:     82.66.213.23:49139 - "GET / HTTP/1.0" 200 OK
+WARNING:  Invalid HTTP request received.
+INFO:     34.83.106.246:4928 - "OPTIONS / HTTP/1.0" 405 Method Not Allowed
+INFO:     143.110.222.166:45372 - "GET / HTTP/1.1" 200 OK
+INFO:     86.92.180.239:58765 - "GET / HTTP/1.1" 200 OK
+INFO:     86.92.180.239:58765 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     ('86.92.180.239', 58766) - "WebSocket /ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+websocket sending
+websocket sending
+removed connection
+saving to file on close...
+INFO:     86.92.180.239:58983 - "GET / HTTP/1.1" 200 OK
+INFO:     ('86.92.180.239', 58985) - "WebSocket /ws" [accepted]
+INFO:     86.92.180.239:58983 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     connection open
+websocket sending
+websocket sending
+INFO:     201.213.194.157:41909 - "GET / HTTP/1.0" 200 OK
+INFO:     184.105.139.67:58194 - "GET / HTTP/1.1" 200 OK
+INFO:     184.105.139.67:51650 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     184.105.139.67:51456 - "GET /geoserver/web/ HTTP/1.1" 404 Not Found
