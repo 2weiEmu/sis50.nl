@@ -9,102 +9,139 @@
 	}
 
 	body {
-		display: flex;
-		height: 100vh;
-		width: 100vw;
-		justify-content: space-evenly;
-	}
-
-	body div {
-		width: 30%;
 		text-align: center;
 	}
-
-	li {
-		display: flex;
-	}
-	li * {
-		display: inline-block;
-	}
-
-	button {
-		font-size: 2em;
-	}
-
-	li div {
-		width: 100%;
-		text-align: left;
-	}
-
-	li div p {
-		width: 80%;
-		max-width: 80%;
-		overflow: hidden;
-		font-size: 2em;
-	}
-
-	li div button {
-		max-width: 15%;
-		width: 15%;
-	}
-
 
 	table, th, td {
 		border-collapse: collapse;
 		border: 5px double black;
 	}
 
-	th, td {
-		user-select: none;
-	}
-
-	th {
-		font-size: 2em;
-	}
-
-	td {
-		text-align: center;
-		font-size: 4em;
-		min-height: 3.2em;
-		min-width: 2em;
-	}
-
-	#add_item_field {
-		font-size: 2.5em;
-		width: 70%;
-	}
-	
-	#add_item_button {
-		width: 25%;
-
-	}
-
-	@media only screen and (max-width: 1582px) {
-
+	@media only screen and (min-width: 1582px) {
 		body {
-			flex-direction: column-reverse;
+			display: flex;
+			height: 100vh;
+			width: 100vw;
+			justify-content: space-evenly;
 		}
 
 		body div {
+			width: 30%;
+		}
+
+		li {
+			display: flex;
+		}
+		li * {
+			display: inline-block;
+		}
+
+		button {
+			font-size: 2em;
+		}
+
+		li div {
 			width: 100%;
+			text-align: left;
+		}
+
+		li div p {
+			width: 80%;
+			max-width: 80%;
+			overflow: hidden;
+			font-size: 2em;
+		}
+
+		li div button {
+			max-width: 15%;
+			width: 15%;
+		}
+
+
+		table, th, td {
+			border-collapse: collapse;
+			border: 5px double black;
 		}
 
 		th, td {
-			font-size: 250%;
-
-			min-height: none;
-			min-width: none;
-			width: 20%;
-
+			user-select: none;
 		}
 
 		th {
+			font-size: 2em;
+		}
+
+		td {
+			text-align: center;
+			font-size: 4em;
+			min-width: 2em;
+		}
+
+		#add_item_field {
+			font-size: 2.5em;
+			width: 70%;
+		}
+		
+		#add_item_button {
+			width: 25%;
+
+		}
+	}
+
+	@media only screen and (max-width: 1582px) {
+		table {
+			width: 100vw;
+			margin-bottom: 100px;
+		}
+
+		th {
+			font-size: 3.5em;
+		}
+
+		td {
+			width: 20%;
+			font-size: 7em;
+		}
+
+		#buy_list {
+			font-size: 4em;
+		}
+
+		li {
+			padding: 30px 0 30px 0;
+			width: 100%;
+			text-align: left;
+			border-bottom: 5px solid black;
+		}
+
+		li div {
+			display: flex;
+			width: 100%;
+		}
+
+		li div p {
+			min-width: 90%;
+		}
+
+		li div button {
+			width: 10%;
 			font-size: 1em;
 		}
 
-		table {
-			width: 100%;
+		input {
+			font-size: 1em;
+			width: 90%;
 		}
+
+		form button {
+			width: 10%;
+			font-size: 0.8em;
+		}
+
+		form {
+			display: flex;
+		}
+
 	}
 
 </style>
