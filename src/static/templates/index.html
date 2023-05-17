@@ -50,7 +50,13 @@
 		text-decoration: none;
 	}
 
+
 	@media only screen and (min-width: 1582px) {
+
+		h1 {
+			font-size: 3em;
+		}
+
 		body {
 			display: flex;
 			height: 100vh;
@@ -118,6 +124,10 @@
 	}
 
 	@media only screen and (max-width: 1582px) {
+		h1 {
+			margin: 30px 0px 30px 0px;
+		}
+
 		table {
 			width: 100vw;
 			margin-bottom: 100px;
@@ -257,6 +267,7 @@
 			</table>
 		</div>
 		<div id="buy_list">
+			<h1>nodig</h1>
 			<form action="" onsubmit="addItemMessage(event)">
 				<input id="add_item_field" type="text"/>
 				<button id="add_item_button">Add</button>
