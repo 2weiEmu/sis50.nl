@@ -8,6 +8,26 @@
 		font-weight: bold;
 	}
 
+	footer {
+		text-align: left;
+		position: fixed;
+		bottom: 10px;
+		left: 10px;
+		width: 20%;
+	}
+
+	/*
+		Move these into the desktop styling someday, ik im lazy for not doing it rn
+	*/
+	footer input {
+		width: 75%;
+	}
+
+	footer button {
+		width: 20%;
+		font-size: 1em;
+	}
+
 	body {
 		text-align: center;
 		background: linear-gradient(to bottom right, #000000, #1f1f1f);
@@ -146,6 +166,10 @@
 			display: flex;
 		}
 
+		footer {
+			display: none;
+		}
+
 	}
 
 </style>
@@ -237,6 +261,16 @@
 			</ul>
 		</div>
 	</body>
+
+	<footer>
+
+		<form action="" onsubmit="changeBackgroundImage(event)">
+			<input id="new_background" type="text"/>
+			<button>Change</button>
+		</form>
+
+
+	</footer>
 </html>
 
 <script>
@@ -249,6 +283,54 @@
 	var ws = new WebSocket("ws://172.104.143.161/ws")
 
 	// CLIENT SIDE FUNCTIONS
+	function changeBackgroundImage(event) {
+
+		var new_background_url = document.getElementById("new_background").value;
+		var body = document.getElementsByTagName("body")[0];
+
+		var table = document.getElementsByTagName("table")[0];
+		var buy_list = document.getElementById("buy_list");
+
+		if (new_background_url != "") {
+			body.style.backgroundImage = `url(${new_background_url})`;
+			body.style.backgroundSize = "cover";
+
+			table.style.backgroundColor = "#ffffff0f"
+			buy_list.style.backgroundColor = "#ffffff0f"
+			localStorage.setItem("background-url", `${new_background_url}`)
+
+		} else {
+			body.style.background = "linear-gradient(to bottom right, #000000, #1f1f1f)";
+			buy_list.style.backgroundColor = "#00000000";
+			table.style.backgroundColor = "#00000000";
+			localStorage.setItem("background-url", "")
+		}
+
+		event.preventDefault();
+	}
+
+	// changing saved background image
+
+	try {
+		var backgroundUrl = localStorage.getItem("background-url");
+		if (backgroundUrl != "") {
+
+			var body = document.getElementsByTagName("body")[0];
+
+			var table = document.getElementsByTagName("table")[0];
+			var buy_list = document.getElementById("buy_list");
+			body.style.backgroundImage = `url(${new_background_url})`;
+			body.style.backgroundSize = "cover";
+
+			table.style.backgroundColor = "#ffffff0f"
+			buy_list.style.backgroundColor = "#ffffff0f"
+			localStorage.setItem("background-url", `${new_background_url}`)
+			console.log("read and changed");
+		}
+	} catch (error) {
+		localStorage.setItem("background-url", "")
+	}
+
 	function newModelItem(itemCount, itemName) {
 		return `<div>
 			<p id="text-${itemCount}">${itemName}</p>
