@@ -1,57 +1,20 @@
-# The Sis50 site for groceries, and cooking schedules
+# The Sis50 House Site!
 
-This site will have basically functionality that includes being able to change the cooking timetable and add things to the shopping list.
+This is the repo for the site of the house Simonsstraat 50 in the Netherlands.
 
-The initial version is not going to include password authentication, though this will be added later so that people actually from Sis50 only can change the relevant notices.
+It is mainly a website that allows us to easily centralise some important tasks that have to be done. Right now progress is not perfect, and the only basic things implemented as of right now are:
 
-The layout of the site will be as follows:
+- Table for Attendance, this basically determines who is cooking when, and for who.
+- Community shopping list, this contains house items, that are kind of needed, and should be gotten by anyone who goes shopping
 
-Table for the date of cooking:
+## Items that will be added
 
-| Rick | Youri | Robert | Milan | Dag |
-|:----:|:-----:|:------:|:-----:|:---:|
-| X    | X     | O      |       | Man |
-| X    |       |        |       | Din |
-| X    | X     | O      | X     | Woe |
-| X    |       | O      |       | Man |
-| X    | O     |        | X     | Don |
-| X    |       | O      | X     | Vri |
-| X    |       | O      | X     | Zat |
-| ?    | O     |        | X     | Zon |
+- A basic notice board
+- A small mini game (preferably also playable on phone)
+- XKCD comic of the day... yes... don't judge.
 
-as an example table... the current day will be highlighted
+... and a small easter egg.
 
-There will also be a simple shopping list
+So yes... we got a website. :>
 
-<style>
-
-    li {
-        display: flex;
-    }
-    #inner_item {
-        display: flex;
-        margin: 0;
-        padding: 10px;
-
-        background-color: #f0f0f0;
-    }
-
-    #inner_item p {
-        justify-content: space-evenly;
-    }
-
-    span {
-        display: inline-block;
-        width: 50px;
-    }
-</style>
-
-<body>
-    <ul>
-        <li><div id="inner_item">item 1<span></span><button>X</button></div></li>
-        <li><div id="inner_item">item 2<span></span><button>X</button></div></li>
-        <li><div id="inner_item">item 3<span></span><button>X</button></div></li>
-        <li><div id="inner_item">item 4<span></span><button>X</button></div></li>
-        <li><div id="inner_item">item 5<span></span><button>X</button></div></li>
-    </ul>
-</body>
+#WijZijnLeuk
