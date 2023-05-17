@@ -10,11 +10,19 @@
 
 	body {
 		text-align: center;
+		background: linear-gradient(to bottom right, #000000, #1f1f1f);
+		color: whitesmoke;
 	}
 
 	table, th, td {
 		border-collapse: collapse;
-		border: 5px double black;
+		border: 5px double #753f00;
+	}
+
+	input {
+		background-color: black;
+		border: 3px solid #753f00;
+		color: whitesmoke;
 	}
 
 	@media only screen and (min-width: 1582px) {
@@ -58,10 +66,6 @@
 		}
 
 
-		table, th, td {
-			border-collapse: collapse;
-			border: 5px double black;
-		}
 
 		th, td {
 			user-select: none;
@@ -261,7 +265,7 @@
 			var select_person = `${all_people[i]}-${today}`
 			var select_element = document.getElementById(select_person);
 			console.log(`changed ${select_person}`);
-			select_element.style.backgroundColor = '#afffaf';
+			select_element.style.backgroundColor = '#0a3b0a';
 		}
 	}
 	highlightCurrentDayRow();
