@@ -85,7 +85,7 @@
 		}
 
 		li div p {
-			width: 80%;
+			width: 60%;
 			max-width: 80%;
 			overflow: hidden;
 			font-size: 2em;
@@ -111,6 +111,7 @@
 			font-size: 4em;
 			min-width: 2em;
 		}
+
 
 		#add_item_field {
 			font-size: 2.5em;
@@ -159,7 +160,7 @@
 		}
 
 		li div p {
-			min-width: 90%;
+			min-width: 80%;
 		}
 
 		li div button {
@@ -297,6 +298,7 @@
 
 	// make sure this connects to the correct server
 	var ws = new WebSocket("ws://172.104.143.161/ws")
+	//var ws = new WebSocket("ws://127.0.0.1:8000/ws")
 
 	// CLIENT SIDE FUNCTIONS
 	function changeBackgroundImage(event) {
@@ -350,9 +352,11 @@
 	function newModelItem(itemCount, itemName) {
 		return `<div>
 			<p id="text-${itemCount}">${itemName}</p>
+			<button id="${itemCount}e" onclick="editItem(this.id)">✎</button>
 			<button id="${itemCount}" onclick="removeItemMessage(this.id)">X</button>
 			</div>`
 	}
+
 
 	function highlightCurrentDayRow() {
 
@@ -399,8 +403,19 @@
 			
 		} else if (messageType == "changeDay") {
 			document.getElementById(mEffectedItem).innerHTML = mNewValue;
+		} else if (messageType == "editItem") {
+			document.getElementById(`text-${mEffectedItem}`).innerHTML = mNewValue;
 		}
 	};
+
+	function editItem(itemId) {
+		var itemToEditId = itemId.slice(0, -1) // cut off last character which is e
+		var toChangeElement = document.getElementById(`text-${itemToEditId}`);
+		var newItemName = prompt("Edit Item", `${toChangeElement.innerHTML}`);
+
+		ws.send(`editItem^${itemToEditId}^${newItemName}`)
+	}
+
 	function removeItemMessage(itemId) {
 		var itemValue = document.getElementById(`text-${itemId}`).innerHTML;
 		ws.send(`deleteItem^list_item-${itemId}^${itemValue}`)

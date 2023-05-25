@@ -108,6 +108,23 @@ async def websocket_handler(websocket: WebSocket):
                 personNo = inner_grid_map.index(mRaw[0])
                 grid[dayNo][personNo] = mNewValue if mNewValue != "<space></space>" else "E"
 
+            elif event == "editItem":
+
+                await broadcast_to_sockets(
+                        f"{event}^{mEffectedItem}^{mNewValue}"
+                        )
+
+                removeIndex = -1
+
+                for x, i in enumerate(all_items):
+                    if i[1] == int(mEffectedItem):
+                        removeIndex = x
+
+                if removeIndex != -1:
+                    all_items.remove(all_items[removeIndex])
+
+                all_items.append((mNewValue, int(mEffectedItem)))
+
             elif event == "retrieveState":
                 for item in all_items:
                     print("websocket sending")
@@ -157,5 +174,11 @@ if __name__ == "__main__":
             port=80,
             reload=True
             )
+    """
+    uvicorn.run(
+            "main:app",
+            port=8000
+            )
+    """
 
 
