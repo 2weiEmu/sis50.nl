@@ -331,21 +331,23 @@
 
 	try {
 		var backgroundUrl = localStorage.getItem("background-url");
+		console.log(`background: ${backgroundUrl}`)
 		if (backgroundUrl != "") {
 
 		var body = document.getElementsByTagName("body")[0];
 
 		var table = document.getElementsByTagName("table")[0];
 		var buy_list = document.getElementById("buy_list");
-			body.style.backgroundImage = `url(${new_background_url})`;
+			body.style.backgroundImage = `url(${backgroundUrl})`;
 			body.style.backgroundSize = "cover";
 
 			table.style.backgroundColor = "#ffffff0f"
 			buy_list.style.backgroundColor = "#ffffff0f"
-			localStorage.setItem("background-url", `${new_background_url}`)
+			localStorage.setItem("background-url", `${backgroundUrl}`)
 			console.log("read and changed");
 		}
 	} catch (error) {
+		console.log(error)
 		localStorage.setItem("background-url", "")
 	}
 
