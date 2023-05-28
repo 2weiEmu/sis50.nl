@@ -1,4 +1,5 @@
 import uvicorn
+import requests
 from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -162,8 +163,11 @@ async def websocket_handler(websocket: WebSocket):
                 for notice in notices:
                     print("websocket sending notices")
                     await websocket.send_text(f"addNotice^_^{notice}")
-
+                
                 # only send for grid items that are not X by default
+
+                t = requests.get(url="https://xkcd.com/info.0.json").json()
+                await websocket.send_text(f"changeComic^_^{t['img']}")
 
                 for o in range(len(grid)):
 
