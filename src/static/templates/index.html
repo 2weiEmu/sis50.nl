@@ -432,10 +432,10 @@
 	}
 
 	function addItemMessage(event) {
-		var newItem = document.getElementById("add_item_field").value;
-		if (!(newItem === "")) {
-			ws.send(`addItem^_^${newItem}`);
-			console.log(`addItem^_^${newItem}`)
+		var newItem = document.getElementById("add_item_field");
+		if (!(newItem.value === "")) {
+			ws.send(`addItem^_^${newItem.value}`);
+			console.log(`addItem^_^${newItem.value}`)
 		}
 		newItem.value="";
 		event.preventDefault();
