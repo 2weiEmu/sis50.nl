@@ -81,6 +81,7 @@ with open("notices", "r") as noticesFile:
 
     print("Finished Notices:", notices)
 
+
 @app.websocket("/ws")
 async def websocket_handler(websocket: WebSocket):
     await websocket.accept()
@@ -88,7 +89,8 @@ async def websocket_handler(websocket: WebSocket):
     global item_count
     global notices
 
-    outer_grid_map = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    outer_grid_map = ["monday", "tuesday", "wednesday",
+                      "thursday", "friday", "saturday", "sunday"]
 
     inner_grid_map = ["rick", "youri", "robert", "milan"]
 
@@ -135,7 +137,6 @@ async def websocket_handler(websocket: WebSocket):
                         f"{event}^_^{mNewValue}"
                         )
 
-
             elif event == "editItem":
 
                 await broadcast_to_sockets(
@@ -164,7 +165,6 @@ async def websocket_handler(websocket: WebSocket):
 
                 # only send for grid items that are not X by default
 
-
                 for o in range(len(grid)):
 
                     for i in range(len(grid[0])):
@@ -183,7 +183,7 @@ async def websocket_handler(websocket: WebSocket):
 
         # once again, saving state to disk
         print("saving to file on close...")
-        
+
         with open("grid_state", "w") as gridState:
 
             for row in grid:
@@ -216,5 +216,3 @@ if __name__ == "__main__":
             port=8000
             )
     """
-
-

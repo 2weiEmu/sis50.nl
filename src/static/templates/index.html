@@ -280,6 +280,11 @@
 					<td id="dag-sunday">Zo</td>
 				</tr>
 			</table>
+
+			<h1>Day Comic</h1>
+			<div id="your_random_comic">
+				<img id="randomComicImg" src="">
+			</div>
 		</div>
 		<div id="buy_list">
 			<h1>Nodig</h1>
@@ -351,6 +356,7 @@
 
 		event.preventDefault();
 	}
+
 
 	// changing saved background image
 
@@ -447,6 +453,9 @@
 			console.log(message);
 
 			chatList.prepend(newChatItem);
+		} else if (messageType == "changeComic") {
+			document.getElementById("randomComicImg").src = mNewValue;
+			console.log(`Got image: ${mNewValue}`);
 		}
 	};
 
