@@ -41,6 +41,7 @@ all_items: list[tuple] = []
 # grid format: [STATE_1, STATE_2, STATE_3, STATE_4] for each weekday
 # STATES = E, X, ?, O
 grid: list[list[str]] = []
+notices: list[str] = []
 global item_count
 item_count = 0
 
@@ -49,7 +50,10 @@ with open("list_items", "r") as itemsFile:
     raw_items = itemsFile.readlines()
     for raw in raw_items:
         t = raw.replace('\n', "")
-        if t == "": continue
+
+        if t == "":
+            continue
+
         t = t.split("^")
         print(t)
         item_id = int(t[1])
@@ -66,11 +70,23 @@ with open("grid_state", "r") as gridFile:
 
     print("Finished Grid:", grid)
 
+
+with open("notices", "r") as noticesFile:
+    raw_notices = noticesFile.readlines()
+
+    # TODO, yes this is a bit primitive, I was too lazy to attach IDs
+    for raw in raw_notices:
+        tRaw = raw.replace("\n", "")
+        notices.append(tRaw)
+
+    print("Finished Notices:", notices)
+
 @app.websocket("/ws")
 async def websocket_handler(websocket: WebSocket):
     await websocket.accept()
     all_connections.append(websocket)
     global item_count
+    global notices
 
     outer_grid_map = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
@@ -108,6 +124,18 @@ async def websocket_handler(websocket: WebSocket):
                 personNo = inner_grid_map.index(mRaw[0])
                 grid[dayNo][personNo] = mNewValue if mNewValue != "<space></space>" else "E"
 
+            elif event == "addNotice":
+
+                if len(notices) == 5:
+                    notices = notices[1:]
+
+                notices.append(mNewValue)
+
+                await broadcast_to_sockets(
+                        f"{event}^_^{mNewValue}"
+                        )
+
+
             elif event == "editItem":
 
                 await broadcast_to_sockets(
@@ -129,6 +157,10 @@ async def websocket_handler(websocket: WebSocket):
                 for item in all_items:
                     print("websocket sending")
                     await websocket.send_text(f"addItem^{item[1]}^{item[0]}")
+
+                for notice in notices:
+                    print("websocket sending notices")
+                    await websocket.send_text(f"addNotice^_^{notice}")
 
                 # only send for grid items that are not X by default
 
@@ -160,6 +192,10 @@ async def websocket_handler(websocket: WebSocket):
         with open("list_items", "w") as listItems:
             for item in all_items:
                 listItems.write(f"{item[0]}^{item[1]}" + '\n')
+
+        with open("notices", "w") as noticeFile:
+
+            noticeFile.write("\n".join(notices))
 
 
 async def broadcast_to_sockets(data: str):

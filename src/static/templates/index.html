@@ -118,15 +118,22 @@
 		}
 
 
-		#add_item_field {
+		#add_item_field, #newNoticeText {
 			font-size: 2.5em;
 			width: 83%;
 		}
 		
-		#add_item_button {
+		#add_item_button, #newNoticeButton {
 			width: 15%;
 
 		}
+
+		#chatList {
+			width: 100%;
+			text-align: left;
+			font-size: 2.5em;
+		}
+
 	}
 
 	@media only screen and (max-width: 1582px) {
@@ -283,6 +290,16 @@
 			<ul id="item_list">
 
 			</ul>
+
+			<br>
+			<h1>Bericht</h1>
+			<form action="" onsubmit="addNotice(event)">
+				<input id="newNoticeText" type="text"/>
+				<button id="newNoticeButton">+</button>
+			</form>
+
+			<div id="chatList">
+			</div>
 		</div>
 	</body>
 
@@ -297,6 +314,7 @@
 	</footer>
 </html>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
 	// CONSTANT STATE
 	var days_map = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
@@ -414,6 +432,21 @@
 			document.getElementById(mEffectedItem).innerHTML = mNewValue;
 		} else if (messageType == "editItem") {
 			document.getElementById(`text-${mEffectedItem}`).innerHTML = mNewValue;
+		} else if (messageType == "addNotice") {
+			var newChatItem = document.createElement("p")
+			var chatList = document.getElementById("chatList");
+
+			console.log(chatList.children.length);
+			if (chatList.children.length >= 4) {
+				console.log("removing child")
+				chatList.removeChild(chatList.lastChild);
+			}
+
+			newChatItem.innerHTML = mNewValue;
+
+			console.log(message);
+
+			chatList.prepend(newChatItem);
 		}
 	};
 
@@ -447,6 +480,18 @@
 		var new_index = (day_states.indexOf(current_day_state) + 1) % day_states.length;
 		ws.send(`changeDay^${itemId}^${day_states[new_index]}`);
 		console.log(`changeDay^${itemId}^${day_states[new_index]}`)
+	}
+
+	function addNotice(event) {
+		
+		var newNoticeTextItem = document.getElementById("newNoticeText");
+		console.log(newNoticeTextItem)
+		ws.send(`addNotice^_^${newNoticeTextItem.value}`)
+
+		newNoticeTextItem.value = "";
+
+		event.preventDefault()
+
 	}
 
 	ws.onopen = function() {
