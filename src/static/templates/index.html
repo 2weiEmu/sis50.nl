@@ -50,6 +50,10 @@
 		text-decoration: none;
 	}
 
+	li div button {
+		text-overflow: ellipsis;
+	}
+
 
 	@media only screen and (min-width: 1582px) {
 
@@ -85,18 +89,19 @@
 		}
 
 		li div p {
-			width: 60%;
-			max-width: 80%;
+			width: 68.5%;
 			overflow: hidden;
 			font-size: 2em;
 		}
 
 		li div button {
-			max-width: 15%;
-			width: 15%;
+			text-overflow: ellipsis;
+			width: 20%;
 		}
 
-
+		.removeButton {
+			width: 10%;
+		}
 
 		th, td {
 			user-select: none;
@@ -115,11 +120,11 @@
 
 		#add_item_field {
 			font-size: 2.5em;
-			width: 70%;
+			width: 83%;
 		}
 		
 		#add_item_button {
-			width: 25%;
+			width: 15%;
 
 		}
 	}
@@ -160,12 +165,14 @@
 		}
 
 		li div p {
-			min-width: 80%;
+			width: 74%
 		}
 
 		li div button {
 			width: 10%;
 			font-size: 1em;
+			height: 2em;
+			margin-left: 3%;
 		}
 
 		input {
@@ -268,10 +275,10 @@
 			</table>
 		</div>
 		<div id="buy_list">
-			<h1>nodig</h1>
+			<h1>Nodig</h1>
 			<form action="" onsubmit="addItemMessage(event)">
 				<input id="add_item_field" type="text"/>
-				<button id="add_item_button">Add</button>
+				<button id="add_item_button">+</button>
 			</form>
 			<ul id="item_list">
 
@@ -283,7 +290,7 @@
 
 		<form action="" onsubmit="changeBackgroundImage(event)">
 			<input id="new_background" type="text"/>
-			<button>Change</button>
+			<button>Wijziging</button>
 		</form>
 
 
@@ -354,8 +361,8 @@
 	function newModelItem(itemCount, itemName) {
 		return `<div>
 			<p id="text-${itemCount}">${itemName}</p>
-			<button id="${itemCount}e" onclick="editItem(this.id)">✎</button>
-			<button id="${itemCount}" onclick="removeItemMessage(this.id)">X</button>
+			<button id="${itemCount}e" onclick="editItem(this.id)">Editen</button>
+			<button class="removeButton" id="${itemCount}" onclick="removeItemMessage(this.id)">X</button>
 			</div>`
 	}
 
