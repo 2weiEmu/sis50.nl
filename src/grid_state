@@ -2,6 +2,6 @@ E,E,X,O
 E,O,X,E
 O,X,E,X
 E,X,O,E
-E,O,E,E
+E,O,E,X
 E,E,O,X
-E,?,E,X
+O,?,E,X
