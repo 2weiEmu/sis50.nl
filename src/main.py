@@ -28,7 +28,7 @@ templates = Jinja2Templates(directory="static/templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("newIndex.html", {"request": request})
 
 # websocket and state handling
 all_connections = []
@@ -217,6 +217,7 @@ if __name__ == "__main__":
     """
     uvicorn.run(
             "main:app",
-            port=8000
+            port=8000,
+            reload=True
             )
     """
