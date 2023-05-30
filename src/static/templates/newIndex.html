@@ -12,6 +12,7 @@
 		font-weight: bold;
 		color: #cfcfcf;
 		font-size: 1.25rem;
+		text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
 	}
 
 	body {
@@ -51,6 +52,7 @@
 		max-width: 480px;
 		height: auto;
 		margin: auto;
+		border: 2px solid black;
 	}
 
 	table {
@@ -70,7 +72,11 @@
 
 	table, th, td {
 		border: 1px double var(--orange);
-		user-select: nonef
+		user-select: none;
+	}
+
+	table {
+		border: 5px solid black;
 	}
 
 
@@ -85,11 +91,13 @@
 	}
 
 	form input {
-		width: 85%;
+		width: 80%;
+		border: 3px solid black;
 	}
 
 	form button {
 		min-width: 10%;
+		border: 3px solid black;
 	}
 
 	li {
