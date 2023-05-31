@@ -5,8 +5,8 @@ var all_people = ["rick", "youri", "robert", "milan", "dag"]
 var day_states = [ "<space></space>", "X", "O", "?" ];
 
 // make sure this connects to the correct server
-//var ws = new WebSocket("ws://172.104.143.161/ws")
-var ws = new WebSocket("ws://127.0.0.1:8000/ws")
+var ws = new WebSocket("ws://172.104.143.161/ws")
+//var ws = new WebSocket("ws://127.0.0.1:8000/ws")
 
 // CLIENT SIDE FUNCTIONS
 function changeBackgroundImage(event) {
