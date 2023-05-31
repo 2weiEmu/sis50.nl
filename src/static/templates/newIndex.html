@@ -28,6 +28,24 @@
 		color: #cfcfcf;
 		text-decoration: none;
 	}
+
+	.robert {
+		color: #fbbc05;
+	}
+	
+	.milan {
+
+		color: #ea4335;
+	}
+	
+	.youri {
+		color: #34a853;
+
+	}
+
+	.rick {
+		color: #4285fa;
+	}
 	
 	.mainblock {
 		width: 48%;
@@ -48,7 +66,6 @@
 
 	img {
 		display: block;
-		width: 100%;
 		max-width: 480px;
 		height: auto;
 		margin: auto;
@@ -71,12 +88,12 @@
 	}
 
 	table, th, td {
-		border: 1px double var(--orange);
+		border: 5px solid black;
 		user-select: none;
 	}
 
-	table {
-		border: 5px solid black;
+	th, td {
+		border: 3px solid black;
 	}
 
 
@@ -95,7 +112,7 @@
 		border: 3px solid black;
 	}
 
-	form button {
+	button {
 		min-width: 10%;
 		border: 3px solid black;
 	}
@@ -114,7 +131,6 @@
 	}
 
 	li div button {
-		border: none;
 		margin: 1%;
 		width: 9%;
 	}
@@ -122,6 +138,10 @@
 
 	input, button {
 		background-color: #454a4d !important;
+	}
+
+	.editItemButton {
+		min-width: 100px;
 	}
 
 	/* Mobile Formatting */
@@ -141,7 +161,7 @@
 			padding: unset;
 			width: unset;
 			display: block;
-			margin: auto;
+			margin: 0;
 		}
 
 		table {
@@ -187,58 +207,58 @@
 				</tr>
 
 				<tr>
-					<td id="rick-monday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="youri-monday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="robert-monday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="milan-monday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="rick" id="rick-monday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="youri" id="youri-monday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="robert" id="robert-monday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="milan" id="milan-monday" onclick="changeDayStatus(this.id)">X</td>
 					<td id="dag-monday">Ma</td>
 				</tr>
 
 				<tr>
-					<td id="rick-tuesday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="youri-tuesday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="robert-tuesday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="milan-tuesday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="rick" id="rick-tuesday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="youri" id="youri-tuesday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="robert" id="robert-tuesday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="milan" id="milan-tuesday" onclick="changeDayStatus(this.id)">X</td>
 					<td id="dag-tuesday">Di</td>
 				</tr>
 
 				<tr>
-					<td id="rick-wednesday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="youri-wednesday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="robert-wednesday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="milan-wednesday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="rick" id="rick-wednesday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="youri" id="youri-wednesday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="robert" id="robert-wednesday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="milan" id="milan-wednesday" onclick="changeDayStatus(this.id)">X</td>
 					<td id="dag-wednesday">Wo</td>
 				</tr>
 
 				<tr>
-					<td id="rick-thursday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="youri-thursday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="robert-thursday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="milan-thursday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="rick" id="rick-thursday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="youri" id="youri-thursday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="robert" id="robert-thursday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="milan" id="milan-thursday" onclick="changeDayStatus(this.id)">X</td>
 					<td id="dag-thursday">Do</td>
 				</tr>
 
 				<tr>
-					<td id="rick-friday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="youri-friday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="robert-friday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="milan-friday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="rick" id="rick-friday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="youri" id="youri-friday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="robert" id="robert-friday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="milan" id="milan-friday" onclick="changeDayStatus(this.id)">X</td>
 					<td id="dag-friday">Vr</td>
 				</tr>
 
 				<tr>
-					<td id="rick-saturday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="youri-saturday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="robert-saturday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="milan-saturday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="rick" id="rick-saturday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="youri" id="youri-saturday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="robert" id="robert-saturday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="milan" id="milan-saturday" onclick="changeDayStatus(this.id)">X</td>
 					<td id="dag-saturday">Za</td>
 				</tr>
 
 				<tr>
-					<td id="rick-sunday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="youri-sunday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="robert-sunday" onclick="changeDayStatus(this.id)">X</td>
-					<td id="milan-sunday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="rick" id="rick-sunday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="youri" id="youri-sunday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="robert" id="robert-sunday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="milan" id="milan-sunday" onclick="changeDayStatus(this.id)">X</td>
 					<td id="dag-sunday">Zo</td>
 				</tr>
 			</table>

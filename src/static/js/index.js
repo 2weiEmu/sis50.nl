@@ -66,7 +66,7 @@ try {
 function newModelItem(itemCount, itemName) {
 	return `<div>
 		<p id="text-${itemCount}">${itemName}</p>
-		<button id="${itemCount}e" onclick="editItem(this.id)">Editen</button>
+		<button class="editItemButton" id="${itemCount}e" onclick="editItem(this.id)">Editen</button>
 		<button class="removeButton" id="${itemCount}" onclick="removeItemMessage(this.id)">X</button>
 		</div>`
 }
