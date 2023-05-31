@@ -5,8 +5,8 @@ var all_people = ["rick", "youri", "robert", "milan", "dag"]
 var day_states = [ "<space></space>", "X", "O", "?" ];
 
 // make sure this connects to the correct server
-var ws = new WebSocket("ws://172.104.143.161/ws")
-//var ws = new WebSocket("ws://127.0.0.1:8000/ws")
+//var ws = new WebSocket("ws://172.104.143.161/ws")
+var ws = new WebSocket("ws://127.0.0.1:8000/ws")
 
 // CLIENT SIDE FUNCTIONS
 function changeBackgroundImage(event) {
@@ -81,7 +81,8 @@ function highlightCurrentDayRow() {
 		var select_person = `${all_people[i]}-${today}`
 		var select_element = document.getElementById(select_person);
 		console.log(`changed ${select_person}`);
-		select_element.style.backgroundColor = '#0a3b0a';
+		select_element.style.backgroundColor = '#0a3b0a90';
+		console.log('selection complete...');
 	}
 }
 highlightCurrentDayRow();
