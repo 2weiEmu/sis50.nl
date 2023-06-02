@@ -1,4 +1,5 @@
 import uvicorn
+from random import random
 import requests
 from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse
@@ -166,7 +167,14 @@ async def websocket_handler(websocket: WebSocket):
                 
                 # only send for grid items that are not X by default
 
-                t = requests.get(url="https://xkcd.com/info.0.json").json()
+                f = (requests.get(url="https://xkcd.com/info.0.json")).json()
+                top_number = int(f['num'])
+
+                random_comic_number = int(top_number * random())
+
+                print(f"https://xkcd.com/{random_comic_number}/info.0.json")
+                t = (requests.get(url=f"https://xkcd.com/{random_comic_number}/info.0.json")).json()
+
                 await websocket.send_text(f"changeComic^_^{t['img']}")
 
                 await websocket.send_text(f"changeImageTitle^_^{t['alt']}")
