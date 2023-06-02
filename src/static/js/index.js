@@ -138,6 +138,12 @@ ws.onmessage = function(event) {
 	} else if (messageType == "changeComic") {
 		document.getElementById("randomComicImg").src = mNewValue;
 		console.log(`Got image: ${mNewValue}`);
+	} else if (messageType == "changeImageTitle") {
+		document.getElementById("randomComicImg").title = mNewValue;
+		console.log(`Changed Image title to : ${mNewValue}`);
+	} else if (messageType == "changeComicHref") {
+		document.getElementById("randomComicLink").href = mNewValue;
+		console.log(`Changed Image href to : ${mNewValue}`);
 	}
 };
 

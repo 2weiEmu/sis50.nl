@@ -169,6 +169,10 @@ async def websocket_handler(websocket: WebSocket):
                 t = requests.get(url="https://xkcd.com/info.0.json").json()
                 await websocket.send_text(f"changeComic^_^{t['img']}")
 
+                await websocket.send_text(f"changeImageTitle^_^{t['alt']}")
+
+                await websocket.send_text(f"changeComicHref^_^https://xkcd.com/{t['num']}/")
+
                 for o in range(len(grid)):
 
                     for i in range(len(grid[0])):
