@@ -235,24 +235,26 @@ timeDiffSecondsMonday = timediff.total_seconds()
 # timer for resetting each monday
 async def start_timer(time: int):
 
-    print("timer running")
     await asyncio.sleep(time)
-    print("timer sleep over")
 
     # do something
     for o in range(len(grid)):
 
         for i in range(len(grid[0])):
 
-            tValue = "<space></space>"
-            day = outer_grid_map[o]
-            person = inner_grid_map[i]
-            await broadcast_to_sockets(f"changeDay^{person}-{day}^{tValue}")
-            grid[o][i] = "E"
+            if grid[o][i] != 'X':
+
+                tValue = "<space></space>"
+                day = outer_grid_map[o]
+                person = inner_grid_map[i]
+                await broadcast_to_sockets(f"changeDay^{person}-{day}^{tValue}")
+    dayNo = outer_grid_map.index(mRaw[1])
+    personNo = inner_grid_map.index(mRaw[0])
+    grid[dayNo][personNo] = mNewValue if mNewValue != "<space></space>" else "E"
 
     await start_timer(5)
 
-asyncio.ensure_future(start_timer(timeDiffSecondsMonday))
+asyncio.ensure_future(start_timer(5))
 print("Started timer")
 
 async def broadcast_to_sockets(data: str):
@@ -265,6 +267,7 @@ async def broadcast_to_sockets(data: str):
 
 if __name__ == "__main__":
 
+    """
     uvicorn.run(
             "main:app",
             host="0.0.0.0",
@@ -279,4 +282,3 @@ if __name__ == "__main__":
             reload=True,
             log_level='error'
             )
-    """
