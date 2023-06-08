@@ -252,7 +252,12 @@ async def start_timer(time: int):
 
     await start_timer(5)
 
-asyncio.ensure_future(start_timer(timeDiffSecondsMonday))
+
+def start_monday_timer():
+    asyncio.ensure_future(start_timer(timeDiffSecondsMonday))
+
+
+start_monday_timer()
 print("Started timer")
 
 async def broadcast_to_sockets(data: str):
