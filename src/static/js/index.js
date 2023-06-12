@@ -5,8 +5,17 @@ const DAYS_MAP = ["sunday", "monday", "tuesday", "wednesday", "thursday", "frida
 const ALL_PEOPLE = ["rick", "youri", "robert", "milan", "dag"];
 const DAY_STATES = [ "<space></space>", "X", "O", "?" ];
 
-let userWebSocket = new WebSocket("ws://172.104.143.161/ws");
-//let userWebSocket = new WebSocket("ws://127.0.0.1:8000/ws");
+let userWebSocket = get_correct_socket();
+
+function get_correct_socket() {
+	try {
+		return new WebSocket("ws://127.0.0.1:8000/ws");
+	} catch (error) {
+		console.log(error);
+		console.log("Connecting to sis50.nl server");
+		return new WebSocket("ws://172.104.143.161/ws");
+	}
+}
 
 const DOM_BODY = document.getElementsByTagName("body")[0];
 

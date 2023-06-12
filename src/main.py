@@ -1,5 +1,7 @@
 import uvicorn
 
+import sys
+
 from random import random
 import requests
 from datetime import timedelta, datetime
@@ -270,18 +272,27 @@ async def broadcast_to_sockets(data: str):
 
 if __name__ == "__main__":
 
-    uvicorn.run(
-            "main:app",
-            host="0.0.0.0",
-            port=80,
-            reload=True,
-            log_level='error'
-            )
-    """
-    uvicorn.run(
-            "main:app",
-            port=8000,
-            reload=True,
-            log_level='error'
-            )
-    """
+    print(sys.argv)
+    try:
+        ENABLE_DEPLOY = False
+        DEPLOY_PORT = int(sys.argv[2])
+    except IndexError:
+        ENABLE_DEPLOY = sys.argv[1] == "deploy"
+
+    if ENABLE_DEPLOY:
+        print("===\nDeployed on port 80.\n===")
+        uvicorn.run(
+                "main:app",
+                host="0.0.0.0",
+                port=80,
+                reload=True,
+                log_level='error'
+                )
+    else:
+        print(f"===\nRunning on Local Testing environment on port: {DEPLOY_PORT}\n===")
+        uvicorn.run(
+                "main:app",
+                port=DEPLOY_PORT,
+                reload=True,
+                log_level='error'
+                )
