@@ -5,7 +5,7 @@ const DAYS_MAP = ["sunday", "monday", "tuesday", "wednesday", "thursday", "frida
 const ALL_PEOPLE = ["rick", "youri", "robert", "milan", "dag"];
 const DAY_STATES = [ "<space></space>", "X", "O", "?" ];
 
-let userWebSocket = get_correct_socket();
+let userWebSocket = new WebSocket("ws://172.104.143.161/ws");
 
 function get_correct_socket() {
 	try {
