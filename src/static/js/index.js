@@ -5,8 +5,8 @@ const DAYS_MAP = ["sunday", "monday", "tuesday", "wednesday", "thursday", "frida
 const ALL_PEOPLE = ["rick", "youri", "robert", "milan", "dag"];
 const DAY_STATES = [ "<space></space>", "X", "O", "?" ];
 
-const WS = new WebSocket("ws://173.104.143.161/ws");
-//const WS = new WebSocket("ws://127.0.0.1:8000/ws")
+let userWebSocket  = new WebSocket("ws://175.104.143.161/ws");
+//let userWebSocket = new WebSocket("ws://127.0.0.1:8000/ws")
 
 const DOM_BODY = document.getElementsByTagName("body")[0];
 
@@ -70,7 +70,7 @@ function highlight_todays_row() {
 /*
  * WEBSOCKET HANDLING
  */
-WS.onmessage = function(event) {
+userWebSocket.onmessage = function(event) {
 
 	var itemList = document.getElementById("item_list");
 
@@ -128,19 +128,19 @@ function editItem(itemId) {
 	var toChangeElement = document.getElementById(`text-${itemToEditId}`);
 	var newItemName = prompt("Edit Item", `${toChangeElement.innerHTML}`);
 
-	WS.send(`editItem^${itemToEditId}^${newItemName}`)
+	userWebSocket.send(`editItem^${itemToEditId}^${newItemName}`)
 }
 
 function removeItemMessage(itemId) {
 	var itemValue = document.getElementById(`text-${itemId}`).innerHTML;
-	WS.send(`deleteItem^list_item-${itemId}^${itemValue}`)
+	userWebSocket.send(`deleteItem^list_item-${itemId}^${itemValue}`)
 	console.log(`deleteItem^list_item-${itemId}^${itemValue}`);
 }
 
 function addItemMessage(event) {
 	var newItem = document.getElementById("add_item_field");
 	if (!(newItem.value === "")) {
-		WS.send(`addItem^_^${newItem.value}`);
+		userWebSocket.send(`addItem^_^${newItem.value}`);
 		console.log(`addItem^_^${newItem.value}`)
 	}
 	newItem.value="";
@@ -151,7 +151,7 @@ function changeDayStatus(itemId) {
 	var current_day = document.getElementById(itemId);
 	var current_day_state = current_day.innerHTML;
 	var new_index = (DAY_STATES.indexOf(current_day_state) + 1) % DAY_STATES.length;
-	WS.send(`changeDay^${itemId}^${DAY_STATES[new_index]}`);
+	userWebSocket.send(`changeDay^${itemId}^${DAY_STATES[new_index]}`);
 	console.log(`changeDay^${itemId}^${DAY_STATES[new_index]}`)
 }
 
@@ -159,7 +159,7 @@ function addNotice(event) {
 	
 	var newNoticeTextItem = document.getElementById("newNoticeText");
 	console.log(newNoticeTextItem)
-	WS.send(`addNotice^_^${newNoticeTextItem.value}`)
+	userWebSocket.send(`addNotice^_^${newNoticeTextItem.value}`)
 
 	newNoticeTextItem.value = "";
 
@@ -173,8 +173,8 @@ function addNotice(event) {
 // Establishing websocket connection and retrieving state.
 // retrieves the most up-to-date for the given user, !!NOT BROADCAST!!
 // will be received as fragments of all possible operations, instead of as one big string
-WS.onopen = function() {
-	 WS.send("retrieveState^_^_") 
+userWebSocket.onopen = function() {
+	 userWebSocket.send("retrieveState^_^_") 
 };
 
 // Setting background image if previously saved.
