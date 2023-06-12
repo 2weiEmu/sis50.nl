@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<style>
+	:root {
+		--orange: #753f00;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		font-family: "Cabin Sketch", cursive;
+		font-weight: bold;
+		color: #cfcfcf;
+		font-size: 1.25rem;
+		text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+	}
+
+	body {
+		margin-top: 50px;
+		background-color: #1f1f1f;
+
+
+		width: calc(100vw - 50%);
+		margin-left: 25%;
+	}
+
+	a {
+		color: #cfcfcf;
+		text-decoration: none;
+	}
+
+	.robert {
+		color: #fbbc05;
+	}
+	
+	.milan {
+
+		color: #ea4335;
+	}
+	
+	.youri {
+		color: #34a853;
+
+	}
+
+	.rick {
+		color: #4285fa;
+	}
+	
+	.mainblock {
+		width: 100%;
+	}
+
+	h1 {
+		text-align: center;
+		margin-top: 20px;
+	}
+
+	#settings {
+		position: fixed;
+
+		top: 0;
+		left: 0;
+	}
+
+	img {
+		display: block;
+		max-width: 480px;
+		height: auto;
+		margin: auto;
+		border: 2px solid black;
+	}
+
+	table {
+		text-align: center;
+		height: 100%;
+		width: 100%;
+	}
+
+	tr {
+		width: 100%;
+	}
+
+	td {
+		width: 20%;
+		font-size: 1.75em;
+	}
+
+	table, th, td {
+		border: 5px solid black;
+		user-select: none;
+	}
+
+	th, td {
+		border: 3px solid black;
+	}
+
+
+	form {
+		width: 100%;
+	}
+
+	form * {
+		border-radius: 10px;
+		border: none;
+		padding: 5px;
+	}
+
+	form input {
+		width: 80%;
+		border: 3px solid black;
+	}
+
+	button {
+		min-width: 10%;
+		border: 3px solid black;
+	}
+
+	li {
+		display: block;
+	}
+
+	li div {
+		display: flex;
+	}
+
+	li div p {
+		width: 80%;
+		text-overflow: ellipsis;
+	}
+
+	li div button {
+		margin: 1%;
+		width: 9%;
+	}
+
+
+	input, button {
+		background-color: #454a4d !important;
+	}
+
+	.editItemButton {
+		min-width: 100px;
+	}
+
+	@media only screen and (max-width: 480px) {
+
+		* {
+
+		}
+
+		body {
+			flex-direction: column;
+			margin: 0px;
+			width: 100%;
+		}
+
+		.mainblock {
+			padding: unset;
+			width: unset;
+			display: block;
+			margin: 0;
+		}
+
+		table {
+			height: 50vh;
+		}
+
+		td {
+			width: 18vw;
+		}
+
+		h1 {
+			border-top: 2px solid var(--orange);
+		}
+
+		#settings {
+			display: none;
+		}
+
+		th, a {
+			font-size: 0.5rem;
+		}
+
+
+	}
+
+</style>
+
+
+<html>
+	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Sis50's Chalkboard</title>
+	</head>
+
+	<body>
+		<div class="mainblock" id="attendance_table">
+			<table>
+				<tr>
+					<th><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Rick<a></th>
+					<th>Youri</th>
+					<th>Robert</th>
+					<th>Milan</th>
+					<th>Dag</th>
+				</tr>
+
+				<tr>
+					<td class="rick" id="rick-monday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="youri" id="youri-monday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="robert" id="robert-monday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="milan" id="milan-monday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="dag-monday">Ma</td>
+				</tr>
+
+				<tr>
+					<td class="rick" id="rick-tuesday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="youri" id="youri-tuesday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="robert" id="robert-tuesday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="milan" id="milan-tuesday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="dag-tuesday">Di</td>
+				</tr>
+
+				<tr>
+					<td class="rick" id="rick-wednesday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="youri" id="youri-wednesday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="robert" id="robert-wednesday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="milan" id="milan-wednesday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="dag-wednesday">Wo</td>
+				</tr>
+
+				<tr>
+					<td class="rick" id="rick-thursday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="youri" id="youri-thursday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="robert" id="robert-thursday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="milan" id="milan-thursday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="dag-thursday">Do</td>
+				</tr>
+
+				<tr>
+					<td class="rick" id="rick-friday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="youri" id="youri-friday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="robert" id="robert-friday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="milan" id="milan-friday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="dag-friday">Vr</td>
+				</tr>
+
+				<tr>
+					<td class="rick" id="rick-saturday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="youri" id="youri-saturday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="robert" id="robert-saturday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="milan" id="milan-saturday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="dag-saturday">Za</td>
+				</tr>
+
+				<tr>
+					<td class="rick" id="rick-sunday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="youri" id="youri-sunday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="robert" id="robert-sunday" onclick="changeDayStatus(this.id)">X</td>
+					<td class="milan" id="milan-sunday" onclick="changeDayStatus(this.id)">X</td>
+					<td id="dag-sunday">Zo</td>
+				</tr>
+			</table>
+		</div>
+
+
+		<div class="mainblock">
+			<h1>Vandaag's Comic</h1>
+			<div id="your_random_comic">
+				<a id="randomComicLink" href="">
+				<img id="randomComicImg" title="" src="">
+				</a>
+			</div>
+		</div>
+
+
+		<div class="mainblock" id="buy_list">
+			<h1>Nodig</h1>
+			<form action="" onsubmit="addItemMessage(event)">
+				<input id="add_item_field" type="text"/>
+				<button id="add_item_button">+</button>
+			</form>
+			<ul id="item_list">
+
+			</ul>
+		</div>
+
+
+		<div class="mainblock">
+			<h1>Bericht</h1>
+			<form action="" onsubmit="addNotice(event)">
+				<input id="newNoticeText" type="text"/>
+				<button id="newNoticeButton">+</button>
+			</form>
+
+			<div id="chatList">
+			</div>
+		</div>
+	</body>
+
+	<footer>
+
+		<div id="settings">
+			<form action="" onsubmit="change_background_image(event)">
+				<input id="new_background" type="text"/>
+				<button>✓</button>
+			</form>
+
+		</div>
+
+
+	</footer>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="{{ url_for('static', path='/js/index.js') }}"></script>

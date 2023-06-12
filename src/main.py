@@ -32,7 +32,7 @@ templates = Jinja2Templates(directory="static/templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
-    return templates.TemplateResponse("newIndex.html", {"request": request})
+    return templates.TemplateResponse("index3.html", {"request": request})
 
 # websocket and state handling
 all_connections = []
