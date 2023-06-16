@@ -1,7 +1,7 @@
-X,E,E,O
-X,O,E,E
-E,X,O,X
+E,X,E,O
+E,X,O,E
 O,X,E,E
-E,X,O,X
-E,X,E,X
-E,X,E,X
+E,O,E,X
+E,E,O,X
+O,E,E,X
+?,O,E,X
