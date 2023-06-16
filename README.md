@@ -1,20 +1,19 @@
 # The Sis50 House Site!
 
-This is the repo for the site of the house Simonsstraat 50 in the Netherlands.
+This is the repo for the site of the house Simonsstraat 50 in Delft, the Netherlands.
 
 It is mainly a website that allows us to easily centralise some important tasks that have to be done. Right now progress is not perfect, and the only basic things implemented as of right now are:
 
-- Table for Attendance, this basically determines who is cooking when, and for who.
-- Community shopping list, this contains house items, that are kind of needed, and should be gotten by anyone who goes shopping
+- Attendance Table that easily allows us to coordinate cooking
+- Community Shopping List that can also be easily accessed via Phone
+- A daily comic, which changes on reload, just to have a nice mood
+- A small message board, with a limit of 5 messages, to let people know of things that can't be otherwise shown
 
-## Items that will be added
+... and there is also a small easter egg.
 
-- A basic notice board
-- A small mini game (preferably also playable on phone)
-- XKCD comic of the day... yes... don't judge.
-
-... and a small easter egg.
-
-So yes... we got a website. :>
-
-#WijZijnLeuk
+- There will be a small site for a collection of simple recipes
+    - this you will be able to sort by available ingredients
+    - eventually the average price is going to be tracked
+- There will be a small mini-game available on the site
+- User Authentication / Password protection
+- Better Styling (Code and Site)
