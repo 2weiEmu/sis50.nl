@@ -98,7 +98,6 @@ outer_grid_map = ["monday", "tuesday", "wednesday",
 
 inner_grid_map = ["rick", "youri", "robert", "milan"]
 
-data_buffer = []
 
 @app.websocket("/ws")
 async def websocket_handler(websocket: WebSocket):
@@ -114,7 +113,6 @@ async def websocket_handler(websocket: WebSocket):
             data = bleach.clean(data)
             print(f"/========/ passed: {data} /========/")
 
-            data_buffer.append(data)
             """
             Data has the following format now
             [event]^[mEffectedItem]^[mNewValue]
@@ -230,8 +228,6 @@ async def websocket_handler(websocket: WebSocket):
 
             noticeFile.write("\n".join(notices))
 
-        with open("data", "w") as dataFile:
-            dataFile.writelines(data_buffer)
 
 
 # Calculating the time remaining until monday
@@ -274,7 +270,7 @@ def start_monday_timer():
     asyncio.ensure_future(start_timer(timeDiffSecondsMonday))
 
 
-#start_monday_timer()
+start_monday_timer()
 print("Started timer")
 
 async def broadcast_to_sockets(data: str):
