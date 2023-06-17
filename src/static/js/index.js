@@ -6,6 +6,7 @@ const ALL_PEOPLE = ["rick", "youri", "robert", "milan", "dag"];
 const DAY_STATES = [ "<space></space>", "X", "O", "?" ];
 
 let userWebSocket = new WebSocket("ws://172.104.143.161/ws");
+//let userWebSocket = new WebSocket("ws://127.0.0.1:8000/ws");
 
 function get_correct_socket() {
 	try {

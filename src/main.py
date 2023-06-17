@@ -1,5 +1,7 @@
 import uvicorn
 
+import bleach # for cleaning HTML
+
 import sys
 
 from random import random
@@ -39,6 +41,9 @@ async def root(request: Request):
 # websocket and state handling
 all_connections = []
 
+LIST_RESOURCES = r"../resources/list_items"
+GRID_RESOURCES = r"../resources/grid_state"
+NOTE_RESOURCES = r"../resources/notices"
 
 # format of a tuple: (ITEMNAME, ITEMID)
 # i am loading these into array, because like
@@ -53,7 +58,7 @@ global item_count
 item_count = 0
 
 # load the initially saved items
-with open("list_items", "r") as itemsFile:
+with open(LIST_RESOURCES, "r") as itemsFile:
     raw_items = itemsFile.readlines()
     for raw in raw_items:
         t = raw.replace('\n', "")
@@ -68,7 +73,7 @@ with open("list_items", "r") as itemsFile:
             item_count = item_id + 1
         all_items.append((t[0], item_id))
 
-with open("grid_state", "r") as gridFile:
+with open(GRID_RESOURCES, "r") as gridFile:
     raw_grid = gridFile.readlines()
 
     for raw in raw_grid:
@@ -78,7 +83,7 @@ with open("grid_state", "r") as gridFile:
     print("Finished Grid:", grid)
 
 
-with open("notices", "r") as noticesFile:
+with open(NOTE_RESOURCES, "r") as noticesFile:
     raw_notices = noticesFile.readlines()
 
     # TODO, yes this is a bit primitive, I was too lazy to attach IDs
@@ -93,6 +98,8 @@ outer_grid_map = ["monday", "tuesday", "wednesday",
 
 inner_grid_map = ["rick", "youri", "robert", "milan"]
 
+data_buffer = []
+
 @app.websocket("/ws")
 async def websocket_handler(websocket: WebSocket):
     await websocket.accept()
@@ -104,6 +111,10 @@ async def websocket_handler(websocket: WebSocket):
     try:
         while True:
             data = await websocket.receive_text()
+            data = bleach.clean(data)
+            print(f"/========/ passed: {data} /========/")
+
+            data_buffer.append(data)
             """
             Data has the following format now
             [event]^[mEffectedItem]^[mNewValue]
@@ -113,6 +124,7 @@ async def websocket_handler(websocket: WebSocket):
             event = data[0]
             mEffectedItem = data[1]
             mNewValue = data[2]
+
 
             if event == "addItem":
                 all_items.append((mNewValue, item_count))
@@ -205,18 +217,21 @@ async def websocket_handler(websocket: WebSocket):
         # once again, saving state to disk
         print("saving to file on close...")
 
-        with open("grid_state", "w") as gridState:
+        with open(GRID_RESOURCES, "w") as gridState:
 
             for row in grid:
                 gridState.write(",".join(row) + '\n')
 
-        with open("list_items", "w") as listItems:
+        with open(LIST_RESOURCES, "w") as listItems:
             for item in all_items:
                 listItems.write(f"{item[0]}^{item[1]}" + '\n')
 
-        with open("notices", "w") as noticeFile:
+        with open(NOTE_RESOURCES, "w") as noticeFile:
 
             noticeFile.write("\n".join(notices))
+
+        with open("data", "w") as dataFile:
+            dataFile.writelines(data_buffer)
 
 
 # Calculating the time remaining until monday
@@ -259,7 +274,7 @@ def start_monday_timer():
     asyncio.ensure_future(start_timer(timeDiffSecondsMonday))
 
 
-start_monday_timer()
+#start_monday_timer()
 print("Started timer")
 
 async def broadcast_to_sockets(data: str):
@@ -285,14 +300,10 @@ if __name__ == "__main__":
                 "main:app",
                 host="0.0.0.0",
                 port=80,
-                reload=True,
-                log_level='error'
                 )
     else:
         print(f"===\nRunning on Local Testing environment on port: {DEPLOY_PORT}\n===")
         uvicorn.run(
                 "main:app",
                 port=DEPLOY_PORT,
-                reload=True,
-                log_level='error'
                 )
