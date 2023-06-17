@@ -257,7 +257,7 @@ async def start_timer(time: int):
 
         for i in range(len(grid[0])):
 
-            tValue = "<space></space>"
+            tValue = "E"
             day = outer_grid_map[o]
             person = inner_grid_map[i]
             await broadcast_to_sockets(f"changeDay^{person}-{day}^{tValue}")
