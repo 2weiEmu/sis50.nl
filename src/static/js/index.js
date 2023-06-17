@@ -103,6 +103,9 @@ userWebSocket.onmessage = function(event) {
 		document.getElementById(mEffectedItem).remove();
 		
 	} else if (messageType == "changeDay") {
+		if (mNewValue === "E") {
+			mNewValue = "<space></space>";
+		}
 		document.getElementById(mEffectedItem).innerHTML = mNewValue;
 	} else if (messageType == "editItem") {
 		document.getElementById(`text-${mEffectedItem}`).innerHTML = mNewValue;

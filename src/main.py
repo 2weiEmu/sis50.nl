@@ -141,7 +141,7 @@ async def websocket_handler(websocket: WebSocket):
                 mRaw = mEffectedItem.split("-")
                 dayNo = outer_grid_map.index(mRaw[1])
                 personNo = inner_grid_map.index(mRaw[0])
-                grid[dayNo][personNo] = mNewValue if mNewValue != "<space></space>" else "E"
+                grid[dayNo][personNo] = mNewValue 
 
             elif event == "addNotice":
 
@@ -202,7 +202,7 @@ async def websocket_handler(websocket: WebSocket):
 
                         if grid[o][i] != 'X':
 
-                            tValue = grid[o][i] if grid[o][i] != 'E' else "<space></space>"
+                            tValue = grid[o][i] 
                             day = outer_grid_map[o]
                             person = inner_grid_map[i]
                             await websocket.send_text(f"changeDay^{person}-{day}^{tValue}")
