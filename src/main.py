@@ -1,6 +1,6 @@
 import uvicorn
 
-import bleach # for cleaning HTML
+import bleach  # for cleaning HTML
 
 import sys
 
@@ -33,6 +33,7 @@ app.add_middleware(
 app.mount('/static', StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="static/templates")
+
 
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
@@ -106,7 +107,6 @@ async def websocket_handler(websocket: WebSocket):
     global item_count
     global notices
 
-
     try:
         while True:
             data = await websocket.receive_text()
@@ -122,7 +122,6 @@ async def websocket_handler(websocket: WebSocket):
             event = data[0]
             mEffectedItem = data[1]
             mNewValue = data[2]
-
 
             if event == "addItem":
                 all_items.append((mNewValue, item_count))
@@ -141,7 +140,7 @@ async def websocket_handler(websocket: WebSocket):
                 mRaw = mEffectedItem.split("-")
                 dayNo = outer_grid_map.index(mRaw[1])
                 personNo = inner_grid_map.index(mRaw[0])
-                grid[dayNo][personNo] = mNewValue 
+                grid[dayNo][personNo] = mNewValue
 
             elif event == "addNotice":
 
@@ -179,7 +178,7 @@ async def websocket_handler(websocket: WebSocket):
                 for notice in notices:
                     print("websocket sending notices")
                     await websocket.send_text(f"addNotice^_^{notice}")
-                
+
                 # only send for grid items that are not X by default
 
                 f = (requests.get(url="https://xkcd.com/info.0.json")).json()
@@ -188,13 +187,17 @@ async def websocket_handler(websocket: WebSocket):
                 random_comic_number = int(top_number * random())
 
                 print(f"https://xkcd.com/{random_comic_number}/info.0.json")
-                t = (requests.get(url=f"https://xkcd.com/{random_comic_number}/info.0.json")).json()
+                t = (requests.get(
+                    url=f"https://xkcd.com/{random_comic_number}/info.0.json"
+                )).json()
 
                 await websocket.send_text(f"changeComic^_^{t['img']}")
 
                 await websocket.send_text(f"changeImageTitle^_^{t['alt']}")
 
-                await websocket.send_text(f"changeComicHref^_^https://xkcd.com/{t['num']}/")
+                await websocket.send_text(
+                    f"changeComicHref^_^https://xkcd.com/{t['num']}/"
+                )
 
                 for o in range(len(grid)):
 
@@ -202,10 +205,12 @@ async def websocket_handler(websocket: WebSocket):
 
                         if grid[o][i] != 'X':
 
-                            tValue = grid[o][i] 
+                            tValue = grid[o][i]
                             day = outer_grid_map[o]
                             person = inner_grid_map[i]
-                            await websocket.send_text(f"changeDay^{person}-{day}^{tValue}")
+                            await websocket.send_text(
+                                f"changeDay^{person}-{day}^{tValue}"
+                            )
 
     except WebSocketDisconnect:
         # not the best move neccessarily, but
@@ -229,21 +234,28 @@ async def websocket_handler(websocket: WebSocket):
             noticeFile.write("\n".join(notices))
 
 
-
 # Calculating the time remaining until monday
 # TODO @robert - holy shit this is an abomination
-now = datetime.now()
+def get_time_to_monday() -> int:
+    now = datetime.now()
 
-weekdayToday = now.weekday()
-nextMondayTime = timedelta(6 - weekdayToday)
-changeInHours = timedelta(hours=23 - now.hour)
-changeInMinutes = timedelta(minutes=59 - now.minute)
-changeInSeconds = timedelta(seconds=59 - now.second)
+    weekdayToday = now.weekday()
+    nextMondayTime = timedelta(6 - weekdayToday)
+    changeInHours = timedelta(hours=23 - now.hour)
+    changeInMinutes = timedelta(minutes=59 - now.minute)
+    changeInSeconds = timedelta(seconds=59 - now.second)
 
+    timediff = (
+        now.today() + changeInHours
+        + changeInMinutes + changeInSeconds + nextMondayTime
+    ) - now
 
-timediff = (now.today() + changeInHours + changeInMinutes + changeInSeconds + nextMondayTime) - now
-print(f"Time difference to monday: {timediff}")
-timeDiffSecondsMonday = timediff.total_seconds()
+    print(f"Time difference to monday: {timediff}")
+
+    timeDiffSecondsMonday = timediff.total_seconds()
+
+    return timeDiffSecondsMonday
+
 
 # timer for resetting each monday
 async def start_timer(time: int):
@@ -263,15 +275,16 @@ async def start_timer(time: int):
             await broadcast_to_sockets(f"changeDay^{person}-{day}^{tValue}")
             grid[o][i] = "E"
 
-    await start_timer(5)
+    await start_timer(get_time_to_monday())
 
 
 def start_monday_timer():
-    asyncio.ensure_future(start_timer(timeDiffSecondsMonday))
+    asyncio.ensure_future(start_timer(get_time_to_monday()))
 
 
 start_monday_timer()
 print("Started timer")
+
 
 async def broadcast_to_sockets(data: str):
     for socket in all_connections:
@@ -279,27 +292,3 @@ async def broadcast_to_sockets(data: str):
 
 # TODO @robert - timer for updating weekday show each day
 # TODO @robert - timer for updating comic each day
-
-
-if __name__ == "__main__":
-
-    print(sys.argv)
-    try:
-        ENABLE_DEPLOY = False
-        DEPLOY_PORT = int(sys.argv[2])
-    except IndexError:
-        ENABLE_DEPLOY = sys.argv[1] == "deploy"
-
-    if ENABLE_DEPLOY:
-        print("===\nDeployed on port 80.\n===")
-        uvicorn.run(
-                "main:app",
-                host="0.0.0.0",
-                port=80,
-                )
-    else:
-        print(f"===\nRunning on Local Testing environment on port: {DEPLOY_PORT}\n===")
-        uvicorn.run(
-                "main:app",
-                port=DEPLOY_PORT,
-                )
