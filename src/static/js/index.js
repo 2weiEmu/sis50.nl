@@ -50,7 +50,7 @@ function change_background_image(event) {
 function new_model_item(itemCount, itemName) {
 	return `<div>
 		<p id="text-${itemCount}">${itemName}</p>
-		<button class="editItemButton" id="${itemCount}e" onclick="editItem(this.id)">Editen</button>
+		<button class="editItemButton" id="${itemCount}e" onclick="editItem(this.id)">Bewerk</button>
 		<button class="removeButton" id="${itemCount}" onclick="removeItemMessage(this.id)">X</button>
 		</div>`;
 }
